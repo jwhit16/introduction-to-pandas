@@ -1,0 +1,117 @@
+# Add the code to create the columns Product Name and Color and their associated data.
+
+df1 = pd.DataFrame({
+  'Product ID': [1, 2, 3, 4],
+  'Product Name': ['t-shirt', 't-shirt', 'skirt', 'skirt'],
+  'Color': ['blue', 'green', 'red', 'black']
+})
+
+
+# Add the code to create the 3rd and 4th rows, and the column names.
+
+df2 = pd.DataFrame([
+  [1, 'San Diego', 100],
+  [2, 'Los Angeles', 120],
+  [3, 'San Francisco', 90],
+  [4, 'Sacramento', 115]
+  # Fill in rows 3 and 4
+],
+  columns=['Store ID', 'Location', 'Number of Employees'
+    #add column names here
+  ])
+  
+ # Write the following data as a CSV in cupcakes.csv.
+ 
+ name,cake_flavor,frosting_flavor,topping
+Chocolate Cake,chocolate,chocolate,chocolate shavings
+Birthday Cake,vanilla,vanilla,rainbow sprinkles
+Carrot Cake,carrot,cream cheese,almonds
+
+
+# Read the CSV 'sample.csv' into a variable called df, so that you can learn more about the cities.
+
+df = df.read_csv('sample.csv')
+
+
+# Load the CSV imdb.csv into a variable called df, so that you can learn about popular movies from the past 90 years.
+
+df = pd.read_csv('imdb.csv')
+
+
+# Create a variable called clinic_north that contains ONLY the data from the column clinic_north.
+
+clinic_north = df.clinic_north
+
+
+# Create a variable called clinic_north_south that contains ONLY the data from the columns clinic_north and clinic_south.
+
+clinic_north_south = df[['clinic_north', 'clinic_south']]
+
+
+# Write a command that will produce a Series made up of the March data from df from all four clinic sites and save it to the variable march.
+
+march = df.iloc[2]
+
+
+# Write a command that will produce a DataFrame made up of the data for April, May, and June from df for all four sites (rows 3 through 6), and save it to april_may_june.
+
+april_may_june = df.iloc[-3:]
+
+
+# Inspect april_may_june using print.
+
+print(april_may_june)
+
+
+# Create variable january using a logical statement that selects the row of df where the 'month' column is 'January'.
+
+january = df[df.month == 'January']
+
+
+# Create the variable march_april, which contains the data from March and April. Do this using two logical statements combined using |, which means “or”.
+
+march_april = df[(df.month == 'March') | (df.month == 'April')]
+
+
+# Create the variable january_february_march, containing the data from January, February, and March. Do this using a single logical statement with the isin command.
+
+january_february_march = df[df.month.isin(['January', 'February', 'March'])]
+
+
+# Create a new DataFrame called df3 by resetting the indices on df2 (don’t use inplace or drop).
+
+df3 = df2.reset_index()
+
+
+# Reset the indices of df2 by using the keyword inplace=True and drop=True
+
+df3 = df2.reset_index(inplace=True, drop=True)
+
+
+# Load the data from shoefly.csv into the variable orders.
+
+orders = pd.read_csv('shoefly.csv')
+
+
+# Inspect the first 5 lines of the data.
+
+print(orders.head(5))
+
+
+# Select all of the email addresses from the column email and save them to a variable called emails.
+
+emails = orders.email
+
+
+# Use logic to select that row of orders and save it to the variable frances_palmer.
+
+frances_palmer = orders[orders.first_name == 'Frances']
+
+
+#  Select all orders for shoe_type: clogs, boots, and ballet flats and save them to the variable comfy_shoes.
+
+comfy_shoes = orders[orders.shoe_type.isin(['clogs', 'boots', 'ballet flats'])]
+
+
+
+
